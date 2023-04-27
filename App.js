@@ -61,7 +61,7 @@ export default function App() {
 
     <View style={styles.container}>
       <WebView
-        source={{ uri: 'http://app-www.ronde-de-l-espoir.fr' }}
+        source={{ uri: 'http://app-www.ronde-de-l-espoir.fr/login/login.php' }}
         ref={webViewRef}
         style={styles.view}
         originWhitelist={['*']}
