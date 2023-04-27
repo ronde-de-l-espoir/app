@@ -4,6 +4,7 @@ import { Text, View, StyleSheet, BackHandler } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { Camera } from 'expo-camera';
 import { ActivityIndicator } from 'react-native';
+import * as NavigationBar from 'expo-navigation-bar';
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -41,6 +42,8 @@ export default function App() {
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
   }
+
+  NavigationBar.setBackgroundColorAsync('#0b142c')
 
   return (
 
