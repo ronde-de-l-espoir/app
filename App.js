@@ -3,19 +3,31 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Text, View, StyleSheet, BackHandler } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { Camera } from 'expo-camera';
-import { ActivityIndicator } from 'react-native';
 import * as NavigationBar from 'expo-navigation-bar';
-import { StatusBar } from 'expo-status-bar';
+import * as StatusBar from 'expo-status-bar';
+import * as SplashScreen from 'expo-splash-screen';
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const webViewRef = useRef(null);
-  const Spinner = () => (
-    <View style={styles.activityContainer}>
-      <ActivityIndicator size="large" color="#f29900" />
-    </View>
-  );
+  SplashScreen.preventAutoHideAsync();
+  NavigationBar.setBackgroundColorAsync('white')
+  NavigationBar.setButtonStyleAsync('dark')
+  StatusBar.setStatusBarBackgroundColor('white', false)
+  StatusBar.setStatusBarStyle('dark')
+  StatusBar.setStatusBarTranslucent(false)
+
+  const finishedLoading = async () => {
+    setTimeout(function(){
+      NavigationBar.setBackgroundColorAsync('#0b142c')
+      NavigationBar.setButtonStyleAsync('light')
+      SplashScreen.hideAsync()
+      StatusBar.setStatusBarBackgroundColor('#0b142c', false)
+      StatusBar.setStatusBarStyle('light')
+      StatusBar.setStatusBarTranslucent(false)
+    }, 3000)
+  }
 
   useEffect(() => {
     (async () => {
@@ -44,16 +56,10 @@ export default function App() {
     return <Text>No access to camera</Text>;
   }
 
-  NavigationBar.setBackgroundColorAsync('#0b142c')
 
   return (
 
     <View style={styles.container}>
-      <StatusBar
-        style='light'
-        translucent={false}
-        backgroundColor='#0b142c'
-      />
       <WebView
         source={{ uri: 'http://app-www.ronde-de-l-espoir.fr' }}
         ref={webViewRef}
@@ -66,7 +72,7 @@ export default function App() {
         javaScriptEnabledAndroid
         useWebkit
         startInLoadingState={true}
-        renderLoading={Spinner}
+        onLoad={finishedLoading}
       />
     </View>
   );
