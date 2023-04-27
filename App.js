@@ -5,6 +5,7 @@ import { WebView } from 'react-native-webview';
 import { Camera } from 'expo-camera';
 import { ActivityIndicator } from 'react-native';
 import * as NavigationBar from 'expo-navigation-bar';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -48,6 +49,11 @@ export default function App() {
   return (
 
     <View style={styles.container}>
+      <StatusBar
+        style='light'
+        translucent={false}
+        backgroundColor='#0b142c'
+      />
       <WebView
         source={{ uri: 'http://app-www.ronde-de-l-espoir.fr' }}
         ref={webViewRef}
