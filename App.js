@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Text, View, StyleSheet, BackHandler } from 'react-native';
 import { WebView } from 'react-native-webview'; // imports the webview component
-import { Camera } from 'expo-camera'; // imports the camera component to intercat with the camera
+import { Camera } from 'expo-camera'; // imports the camera component to interact with the camera
 import * as NavigationBar from 'expo-navigation-bar'; // allows control of the bottom Android navigation bar
 import * as StatusBar from 'expo-status-bar'; // allows control of the top status bar
 import * as SplashScreen from 'expo-splash-screen'; // controls the app start screen

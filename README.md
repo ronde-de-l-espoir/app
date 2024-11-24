@@ -11,7 +11,7 @@ Expo also provide a cloud-based service called EAS (Expo Application Services).
 This allows you to send using a single command your project's files to their servers who build the APK/IPA.
 EAS also allows you directly submit to a Store.
 
-Unfornately, some of these building/submitting procedures aren't free :
+Unfortunately, some of these building/submitting procedures aren't free :
 * for Android, you can create and deploy the APK for free by sending it via email, etc... but putting it one the Play Store costs a one-time $25 fee
 * for iOS, to build the IPA file, you *need* an Apple Developer Account, which costs $100 per year...Please note that even if you try to build it on a Mac using XCode instead of on the cloud using EAS, it will ask you to log into your Apple Developer account
 
